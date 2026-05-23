@@ -1,1 +1,332 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: #000;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  overflow-x: hidden;
+}
 
+/* ================= NAVBAR ================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 14px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  z-index: 1000;
+}
+
+.logo h1 {
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.logo p {
+  font-size: 11px;
+  color: #777;
+}
+
+nav {
+  display: flex;
+  gap: 18px;
+}
+
+nav a {
+  font-size: 13px;
+  color: #aaa;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+.nav-btn {
+  padding: 8px 14px;
+  background: #fff;
+  color: #000;
+  border-radius: 20px;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+/* ================= HERO ================= */
+.hero {
+  padding: 130px 7% 80px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-left h1 {
+  font-size: 44px;
+  line-height: 1.15;
+  letter-spacing: -0.6px;
+  margin: 12px 0;
+}
+
+.hero-left p {
+  font-size: 14px;
+  color: #999;
+  max-width: 520px;
+}
+
+.tag {
+  font-size: 11px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  color: #aaa;
+}
+
+/* ================= BUTTONS ================= */
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.primary-btn,
+.secondary-btn {
+  font-size: 13px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.primary-btn {
+  background: #fff;
+  color: #000;
+}
+
+.secondary-btn {
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ================= STATS ================= */
+.stats {
+  display: flex;
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.stats h2 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.stats span {
+  font-size: 11px;
+  color: #777;
+  display: block;
+}
+
+/* ================= CARDS ================= */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 14px;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.card h3 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.card p {
+  font-size: 12px;
+  color: #888;
+}
+
+/* ================= TRUST BAR ================= */
+.trust-bar {
+  padding: 25px 7%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  color: #aaa;
+  font-size: 12px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ================= SECTIONS ================= */
+section {
+  padding: 90px 7%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title p {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #666;
+}
+
+.section-title h2 {
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+/* content blocks */
+.about-content p,
+.pricing-content p,
+.info-content p,
+.terms-content p {
+  font-size: 13px;
+  color: #999;
+  max-width: 800px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  margin-top: 20px;
+  text-align: center;
+}
+
+ul li {
+  font-size: 13px;
+  color: #aaa;
+  margin-top: 8px;
+}
+
+/* ================= DARK SECTIONS ================= */
+.about,
+.terms {
+  background: #0a0a0a;
+}
+
+/* ================= CTA ================= */
+.cta {
+  text-align: center;
+  padding: 100px 7%;
+  background: radial-gradient(circle at top, #111, #000);
+}
+
+.cta h1 {
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+.cta p {
+  font-size: 13px;
+  color: #888;
+  margin: 12px 0 20px;
+}
+
+.cta a {
+  padding: 10px 16px;
+  background: #fff;
+  color: #000;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+/* ================= CONTACT ================= */
+.contact-content {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  padding: 8px 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  font-size: 13px;
+  color: #bbb;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.contact-btn:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 25px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* ================= SCROLL BUTTON ================= */
+.scroll-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  background: #fff;
+  color: #000;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .hero-left h1 {
+    font-size: 36px;
+  }
+
+  .section-title h2 {
+    font-size: 22px;
+  }
+}
