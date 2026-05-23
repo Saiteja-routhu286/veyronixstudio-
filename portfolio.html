@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veyronix Portfolio</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins;
+}
+
+body {
+  background: #000;
+  color: #fff;
+}
+
+/* HEADER (UPDATED) */
+header {
+  padding: 20px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #222;
+}
+
+header h1 {
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+header .right {
+  font-size: 14px;
+  color: #aaa;
+  letter-spacing: 3px;
+  border: 1px solid #333;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* CATEGORY */
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+}
+
+.cat {
+  padding: 8px 15px;
+  border: 1px solid #333;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.cat.active {
+  background: #fff;
+  color: #000;
+}
+
+/* VIEWER */
+.viewer {
+  min-height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* CARD */
+.card {
+  width: 100%;
+  max-width: 340px;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+/* IMAGE */
+.image {
+  height: 180px;
+}
+
+.blue { background: linear-gradient(135deg,#0066ff,#00d9ff); }
+.orange { background: linear-gradient(135deg,#ff6a00,#ffcc00); }
+.green { background: linear-gradient(135deg,#00c853,#b2ff59); }
+.purple { background: linear-gradient(135deg,#7b1fa2,#e040fb); }
+
+/* CONTENT */
+.content {
+  padding: 15px;
+  text-align: left;
+}
+
+.content h3 {
+  font-size: 18px;
+}
+
+.location {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+.content p {
+  font-size: 13px;
+  color: #888;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* CONTROLS */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding-bottom: 40px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.next {
+  background: #fff;
+  color: #000;
+}
+
+.prev {
+  background: #222;
+  color: #fff;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>VEYRONIX STUDIO</h1>
+  <div class="right">PORTFOLIO</div>
+</header>
+
+<!-- CATEGORIES -->
+<div class="categories">
+  <div class="cat active" onclick="setCategory('all', this)">All</div>
+  <div class="cat" onclick="setCategory('landing', this)">Landing</div>
+  <div class="cat" onclick="setCategory('static', this)">Static</div>
+  <div class="cat" onclick="setCategory('whatsapp', this)">WhatsApp</div>
+  <div class="cat" onclick="setCategory('dynamic', this)">Dynamic</div>
+  <div class="cat" onclick="setCategory('branding', this)">Branding</div>
+</div>
+
+<!-- VIEW -->
+<div class="viewer" onclick="openProject()">
+  <div class="card">
+
+    <div class="image" id="img"></div>
+
+    <div class="content">
+      <h3 id="title"></h3>
+      <div class="location" id="location"></div>
+      <p id="desc"></p>
+    </div>
+
+  </div>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <button class="prev" onclick="prev(event)">Previous</button>
+  <button class="next" onclick="next(event)">Next</button>
+</div>
+
+<script>
+
+const projects = [
+  {type:"landing", title:"Restaurant Landing Page", location:"Jammikunta, Telangana", desc:"High conversion booking page", color:"blue", link:"https://example.com"},
+  {type:"landing", title:"Business Landing Page", location:"Hyderabad, India", desc:"Lead generation system", color:"orange", link:"https://example.com"},
+
+  {type:"static", title:"Static Business Website", location:"India", desc:"Fast loading company site", color:"green", link:"https://example.com"},
+  {type:"static", title:"Portfolio Static Site", location:"Remote", desc:"Personal branding website", color:"blue", link:"https://example.com"},
+
+  {type:"whatsapp", title:"WhatsApp Ordering System", location:"India", desc:"Direct order via WhatsApp", color:"purple", link:"https://wa.me/917702613230"},
+
+  {type:"dynamic", title:"Dynamic Web App", location:"India", desc:"Database + admin panel system", color:"orange", link:"https://example.com"},
+
+  {type:"branding", title:"Developer Portfolio", location:"India", desc:"Personal branding website", color:"green", link:"https://example.com"}
+];
+
+let currentCategory = "all";
+let filtered = [...projects];
+let index = 0;
+
+function render() {
+  const project = filtered[index];
+
+  document.getElementById("title").innerText = project.title;
+  document.getElementById("location").innerText = project.location;
+  document.getElementById("desc").innerText = project.desc;
+
+  document.getElementById("img").className = "image " + project.color;
+}
+
+function openProject() {
+  window.open(filtered[index].link, "_blank");
+}
+
+function next(e) {
+  e.stopPropagation();
+  index++;
+  if (index >= filtered.length) index = 0;
+  render();
+}
+
+function prev(e) {
+  e.stopPropagation();
+  index--;
+  if (index < 0) index = filtered.length - 1;
+  render();
+}
+
+function setCategory(type, el) {
+
+  currentCategory = type;
+
+  document.querySelectorAll(".cat").forEach(c => c.classList.remove("active"));
+  el.classList.add("active");
+
+  filtered = (type === "all")
+    ? [...projects]
+    : projects.filter(p => p.type === type);
+
+  index = 0;
+  render();
+}
+
+render();
+
+</script>
+
+</body>
+</html>
