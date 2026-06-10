@@ -88,9 +88,12 @@ header .right {
   transform: translateY(-8px);
 }
 
-/* IMAGE */
-.image {
-  height: 180px;
+
+  .image{
+  height:180px;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 }
 
 .blue { background: linear-gradient(135deg,#0066ff,#00d9ff); }
@@ -215,8 +218,9 @@ function render() {
   document.getElementById("location").innerText = project.location;
   document.getElementById("desc").innerText = project.desc;
 
-  document.getElementById("img").className = "image " + project.color;
-}
+ const img = document.getElementById("img");
+img.style.backgroundImage =
+`url('${project.image}')`;
 
 function openProject() {
   window.open(filtered[index].link, "_blank");
